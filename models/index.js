@@ -1,0 +1,45 @@
+const Sequelize = require('sequelize');
+const sequelize = require('../db.js');
+
+const Parcel = sequelize.define('Parcel', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
+    objectID: Sequelize.INTEGER,
+    lowParcelID: Sequelize.STRING,
+    parcelID: Sequelize.STRING,
+    siteAddress: Sequelize.STRING,
+    ownerName1: Sequelize.STRING,
+    ownerName2: Sequelize.STRING,
+    postalAddress: Sequelize.STRING,
+    postalCity: Sequelize.STRING,
+    postalState: Sequelize.STRING,
+    postalZipCode: Sequelize.STRING,
+    totalAcres: Sequelize.STRING,
+    properyDescription: Sequelize.STRING,
+    documents: Sequelize.STRING,
+    municipality: Sequelize.STRING,
+    schoolDistrict: Sequelize.STRING,
+    schoolTaxCode: Sequelize.STRING,
+    techSchoolDistrict: Sequelize.STRING,
+    assessmentYear: Sequelize.STRING,
+    landValue: Sequelize.INTEGER,
+    improvementValue: Sequelize.INTEGER,
+    currentAssessedValue: Sequelize.INTEGER,
+    url: Sequelize.STRING,
+    previousAssessedValue: Sequelize.INTEGER,
+    town: Sequelize.STRING,
+    range: Sequelize.STRING,
+    section: Sequelize.STRING,
+    postalAddress2: Sequelize.STRING,
+    assessedAcres: Sequelize.STRING, 
+    previosAssesedAcres: Sequelize.STRING,
+    previousTaxYear: Sequelize.STRING,
+    city: Sequelize.STRING,
+    state: Sequelize.STRING,
+    zipcode: Sequelize.STRING,
+});
+
+module.exports = { Parcel }

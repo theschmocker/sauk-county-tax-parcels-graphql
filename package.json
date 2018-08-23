@@ -1,0 +1,25 @@
+{
+  "name": "sauk-tax-parcels-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-server-express": "^2.0.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "csv-parse": "^2.5.0",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-server-express": "^1.4.0",
+    "graphql-tools": "^3.1.1",
+    "sequelize": "^4.38.0",
+    "sqlite3": "^4.0.2",
+    "tools": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
