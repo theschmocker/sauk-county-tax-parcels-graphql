@@ -29,14 +29,31 @@ const resolvers = {
             const { ownerName1, ownerName2 } = root.dataValues;
             return [ownerName1, ownerName2].filter(name => name.length > 0);
         },
-        totalAcres: (root) => floatHelper(root, 'totalAcres'),
-        assessedAcres: (root) => floatHelper(root, 'assessedAcres'),
+        totalAcres: (root, args, context, info) => numberHelper(root, info),
+        assessedAcres: (root, args, context, info) => numberHelper(root, info),
+        landValue: (root, args, context, info) => numberHelper(root, info),
+        improvementValue: (root, args, context, info) => numberHelper(root, info),
+        currentAssessedValue: (root, args, context, info) => numberHelper(root, info),
+        previousAssessedValue: (root, args, context, info) => numberHelper(root, info),
+        objectID: (root, args, context, info) => numberHelper(root, info),
     }
 }
 
-function floatHelper(root, fieldName) {
+function numberHelper(root, info) {
     const { dataValues } = root;
-    return parseFloat(dataValues[fieldName]) || 0.0;
+    const { fieldName, returnType } = info;
+    // returnType is not a string as I expected
+    // it's a GraphQLOutputType object. toString must be called here
+    switch (returnType.toString()) { 
+        case 'Float':
+            return parseFloat(dataValues[fieldName]) || 0.0;
+            break;
+        case 'Int':
+            return parseInt(dataValues[fieldName]) || 0;
+            break;
+        default:
+            return dataValues[fieldName];
+    }
 }
 
 module.exports = { resolvers };
